@@ -1,0 +1,177 @@
+body{
+    margin:0;
+    padding:0;
+    min-height:100vh;
+    font-family: Arial;
+    background: linear-gradient(to bottom, #ffd6e0, #ff8fab);
+    text-align:center;
+}
+
+.center{
+    margin-top:150px;
+}
+
+.big-love{
+    font-size:300px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.big-love:hover{
+    transform:scale(1.3);
+}
+
+.gallery img{
+    width:200px;
+    margin:10px;
+    border-radius:10px;
+}
+
+.next{
+    display:inline-block;
+    padding:10px 20px;
+    background:red;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+}
+
+.letter{
+    margin-top:150px;
+    background:white;
+    padding:20px;
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius:15px;
+}
+
+.falling{
+    position:absolute;
+    top:-50px;
+    font-size:30px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform: translateY(100vh);
+    }
+}
+
+#falling-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+  .falling{
+    position: fixed;
+    top: -60px;
+    font-size: 25px;
+    animation: fall linear forwards;
+    z-index: 1;
+}
+
+
+.page-center{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    position:relative;
+    z-index:2;
+}
+
+.gallery{
+    display:flex;
+    gap:50px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.gallery img{
+    width:200px;
+    border-radius:12px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+@keyframes fall{
+    from{
+        top: -60px;
+    }
+    to{
+        top: 110vh;
+        opacity: 0.8;
+    }
+}
+
+.pop-love{
+    position:fixed;
+    transform:translate(-50%,-50%);
+    font-size:30px;
+    animation: pop 1s forwards;
+}
+
+
+@keyframes pop{
+    to{
+        transform: translate(
+            calc(-100px + 200px * var(--x)),
+            calc(-100px + 200px * var(--y))
+        );
+        opacity:0;
+    }
+}
+
+.gallery img{
+    width:200px;
+    border-radius:12px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    cursor:pointer;
+    position: relative;
+    z-index: 2;
+    transition:0.3s;
+}
+
+
+/* Saat foto diklik */
+.gallery img.active{
+    transform:scale(1.15);
+}
+
+/* Love kecil muncul di samping */
+.photo-love{
+    position: fixed;
+    font-size:22px;
+    animation: loveOrbit 1s forwards;
+    pointer-events:none;
+    z-index: 9999; /* supaya di atas gambar */
+    color:#ff4d6d;
+    text-shadow:0 0 10px pink;
+
+}
+
+
+@keyframes loveOrbit{
+    0%{
+        opacity:0;
+        transform:scale(0.5);
+    }
+    50%{
+        opacity:1;
+        transform:scale(1.3);
+    }
+    100%{
+        opacity:0;
+        transform:scale(0.8);
+    }
+}
+
